@@ -1,0 +1,111 @@
+
+++|| STARTED LEARNING ::before and ::after SUDO ELEMENTS ON Thursday, 14th November 2024  12:34 PM  ||++
+
+::before and ::after SUDO ELEMENTS Will enable you to do basically everything which is impossible with normal CSS.
+
+Bullet points of an html list can be changed using a [ ::before ] element.
+
+
+h1::before {
+    // RUN THIS CODE BEFORE h1
+}
+
+h1::after {
+    // RUN THIS CODE AFTER h1
+}
+
+EXAMPLE 
+[
+    HTML 
+    [
+        <h1> James </h1>
+    ]
+
+    CSS
+    [
+        h1::before {
+            content: 'my name is: ';
+        }
+
+        h1::after {
+            content: " what's your name?";
+        }
+    ]
+]
+
+You can apply the style to these ELEMENTS ::before and ::after.
+CSS 
+[
+    h1::before {
+        content: 'my name is: ';
+        font-family: sans-serif;
+        background: #dad7d7;
+        font-size: 2vw;
+        padding: 0.2em;
+        border-radius: 1em;
+    }
+
+    h1::after {
+        content: " what's your name?";
+        font-family: serif;
+        background: #ebffb5;
+        border-radius: 1em;
+    }
+]
+
+WITHOUT TEXT CONTENT [ content: ''; ] THE STYLING it's a bit harder to see your element.
+[
+    !! THE [ content: ''; ] PROPERTY IS REQUIRED EVEN IF IT'S EMPTY !!
+    
+    ||| You can use padding |||
+    [
+        h1::before {
+            content: '';
+            font-family: sans-serif;
+            background: #dad7d7;
+            font-size: 0.4vw;
+            padding: 0em 10.2em;
+            border-radius: 1em;
+        }
+        // IT WORKS.
+    ]
+
+
+    ||| You can use position plus height and width |||
+    [
+        h1 {
+            /* THE abosule element(h1::after{}) will be placed relativly to it's parent(h1) */
+            position: relative;
+            /* FIT WIDTH AS LENGTH INCREASE */
+            width: max-content;
+        }
+
+        /* 
+            THIS SHOULD Underline the headen(h1) THIS GIVES US MORE OPTIONS TO CODE,
+            THAN JUST DOING TH USUALLY 'text-decoration: underline;' WHICH IS STATIC.
+            THE CODE BELOW, SINCE IT BEHAVOUS LIKE AN OBJECT WE CAN ADD TRANSITIONS, HOVER EFFECT AND SO ON.
+        */
+        h1::after {
+            content: "";
+            background: linear-gradient(to right, red, blue);
+            border-radius: 0.8em;
+            height: 10px;
+            /* FILL AVALIABLE SPACE of h1 */
+            width: 100%;
+
+            transition: all 1s;
+            cursor: pointer;
+
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        h1:hover::after {
+            width: 0%;
+        }
+    ]
+]
+
+
+++|| FINISHED LEARNING ::before and ::after SUDO ELEMENTS ON Thursday, 14th November 2024  1:50 PM  ||++
+

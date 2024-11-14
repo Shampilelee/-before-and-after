@@ -1,0 +1,44 @@
+
+
+/* h1::before {
+    content: 'my name is: ';
+    font-family: sans-serif;
+    background: #dad7d7;
+    font-size: 2vw;
+    padding: 0.2em;
+    border-radius: 1em;
+} */
+
+h1 {
+    /* THE abosule element(h1::after{}) will be placed relativly to it's parent(h1) */
+    position: relative;
+    /* FIT WIDTH AS LENGTH INCREASE */
+    width: max-content;
+}
+
+/* 
+    THIS SHOULD Underline the headen(h1) THIS GIVES US MORE OPTIONS TO CODE,
+    THAN JUST DOING TH USUALLY 'text-decoration: underline;' WHICH IS STATIC.
+    THE CODE BELOW, SINCE IT BEHAVOUS LIKE AN OBJECT WE CAN ADD TRANSITIONS, HOVER EFFECT AND SO ON.
+*/
+h1::after {
+    content: "";
+    background: linear-gradient(to right, red, blue);
+    border-radius: 0.8em;
+    height: 10px;
+    /* FILL AVALIABLE SPACE of h1 */
+    width: 100%;
+
+    transition: all 1s;
+    cursor: pointer;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    
+}
+h1:hover::after {
+    width: 0%;
+}
+
+
